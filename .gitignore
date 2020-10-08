@@ -46,6 +46,10 @@ ui.dir
 ui.sln
 x64
 testui.dir
+gui.dir
+Debug
+Release
+out
 testui.exe.dir
 
 

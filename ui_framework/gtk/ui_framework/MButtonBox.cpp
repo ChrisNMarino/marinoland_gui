@@ -2,5 +2,5 @@
 
 MButtonBox::MButtonBox()
 {
-    gtkwidget = gtk_button_box_new(GTK_ORIENTATION_HORIZONTAL);
+    //gtkwidget = gtk_button_box_new(GTK_ORIENTATION_HORIZONTAL);
 }
