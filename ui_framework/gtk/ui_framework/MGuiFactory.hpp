@@ -12,14 +12,14 @@ class MApplication;
 
 class MGuiFactory {
 public:
-    MGuiFactory(/*GtkApplication *app*/) {
-    //    gtkapp = app;
+    MGuiFactory(GtkApplication *app) {
+        gtkapp = app;
     }
-    MButtonRef button(const char *label) { return std::make_shared<MButton>(label); }
-    MButtonBoxRef buttonBox() { return std::make_shared<MButtonBox>(); }
-    MWindowRef window() { return std::make_shared<MWindow>(/*gtkapp*/); }
+    MButtonRef button(MButtonBox & parent, const char *label) { return std::make_shared<MButton>(parent, label); }
+    MButtonBoxRef buttonBox(MWidget &parent) { return std::make_shared<MButtonBox>(parent); }
+    MWindowRef window() { return std::make_shared<MWindow>(gtkapp); }
 private:
-    //GtkApplication *gtkapp;
+    GtkApplication *gtkapp;
 };
 
 #endif

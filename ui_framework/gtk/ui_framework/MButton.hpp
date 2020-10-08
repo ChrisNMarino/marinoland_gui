@@ -4,10 +4,11 @@
 #include <functional>
 
 typedef std::function<void(void)> ClickHandler;
+class MButtonBox;
 class MButton : public MWidget
 {
 public:
-    MButton(const char *label);
+    MButton(MButtonBox &parent, const char *label);
     void OnClick(ClickHandler f);
     ClickHandler HandleClick = [](){};
 private:

@@ -5,7 +5,7 @@
 class MWindow : public MWidget
 {
 public:
-    MWindow(/*GtkApplication *app*/);
+    MWindow(GtkApplication *app);
     void Show();
     void SetTitle(const char *title);
     void SetDimensions(const int w, const int h);

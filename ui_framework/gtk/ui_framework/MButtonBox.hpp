@@ -5,7 +5,7 @@
 class MButtonBox : public MWidget
 {
 public:
-    MButtonBox();
+    MButtonBox(MWidget & parent);
 private:
 };
 

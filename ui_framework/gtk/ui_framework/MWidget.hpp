@@ -1,6 +1,6 @@
 #ifndef __MWidget_hpp__
 #define __MWidget_hpp__
-#include <windows.h>
+#include <gtk/gtk.h>
 
 class MWidget
 {
@@ -8,7 +8,7 @@ public:
     void AddChild(MWidget & child);
     void Close();
 protected:
-//    GtkWidget *gtkwidget;
+    GtkWidget *gtkwidget;
 };
 
 #endif
