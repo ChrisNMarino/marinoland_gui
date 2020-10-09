@@ -9,7 +9,9 @@ public:
     void Show();
     void SetTitle(const char *title);
     void SetDimensions(const int w, const int h);
+    virtual void AddChild(MWidget & child);
 private:
+    GtkWidget *gtkcontainer;
 };
 
 #endif

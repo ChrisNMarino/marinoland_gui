@@ -15,7 +15,7 @@ public:
     MGuiFactory(GtkApplication *app) {
         gtkapp = app;
     }
-    MButtonRef button(MButtonBox & parent, const char *label) { return std::make_shared<MButton>(parent, label); }
+    MButtonRef button(MWidget & parent, const char *label) { return std::make_shared<MButton>(parent, label); }
     MButtonBoxRef buttonBox(MWidget &parent) { return std::make_shared<MButtonBox>(parent); }
     MWindowRef window() { return std::make_shared<MWindow>(gtkapp); }
 private:

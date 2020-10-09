@@ -6,8 +6,8 @@ public:
 	void Ready(MGuiFactory *gui) {
 
 		mainWindow = gui->window();
-		buttonBox = gui->buttonBox(*mainWindow);
-		exitButton = gui->button(*buttonBox, "Clicky");
+		//buttonBox = gui->buttonBox(*mainWindow);
+		exitButton = gui->button(*mainWindow, "Clicky");
 
 		mainWindow->SetTitle("Super Window");
 		mainWindow->SetDimensions(400, 200);
@@ -16,7 +16,7 @@ public:
 	}
 private:
 	MWindowRef mainWindow;
-	MButtonBoxRef buttonBox;
+	//MButtonBoxRef buttonBox;
 	MButtonRef exitButton;
 };
 
