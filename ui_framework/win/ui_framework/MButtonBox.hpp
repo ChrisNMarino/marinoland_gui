@@ -8,9 +8,7 @@ class MButtonBox : public MWidget
 {
 public:
     MButtonBox(MWidget & parent);
-    void HandleButtonClicked(int id, MButton* button);
-
-    std::map<int, MButton*> buttonClickHandlers;
+    LRESULT OnWindowEvent(UINT message, WPARAM wParam, LPARAM lParam);
 private:
 };
 

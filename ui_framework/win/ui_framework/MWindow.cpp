@@ -1,9 +1,9 @@
 #include "ui_framework/MWindow.hpp"
+#include "ui_framework/MButton.hpp"
 
-LRESULT CALLBACK MainWindowCallback(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+LRESULT MWindow::OnWindowEvent(UINT message, WPARAM wParam, LPARAM lParam)
 {
-    MWindow *mWindow = (MWindow *)lParam;
-    switch(message)
+    switch (message)
     {
     case WM_DESTROY:
         ::PostQuitMessage(0);
@@ -17,14 +17,11 @@ LRESULT CALLBACK MainWindowCallback(HWND hWnd, UINT message, WPARAM wParam, LPAR
 
 MWindow::MWindow()
 {
-    RegisterWindowClass("MainWindowClass", ::MainWindowCallback);
-    hWnd = CreateWindow(
-        "MainWindowClass",
-        "",
-        WS_OVERLAPPEDWINDOW,
-        CW_USEDEFAULT, CW_USEDEFAULT,
-        100, 100,
-        NULL, NULL, hInstance, this);
+    CreateCustomHwnd(
+        [](WNDCLASSEX & wndClass) {},
+        [](CREATESTRUCT & create) {
+            create.lpszClass = "MainWindowClass";
+        });
 }
 
 void MWindow::SetTitle(const char *title)
@@ -42,5 +39,4 @@ void MWindow::SetDimensions(const int w, const int h)
 void MWindow::Show()
 {
     ShowWindow(hWnd, SW_SHOW);
-
 }
