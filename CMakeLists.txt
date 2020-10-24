@@ -1,12 +1,6 @@
 cmake_minimum_required(VERSION 2.8)
 project (ui)
 
-if(NOT EXISTS ./depend)
-	execute_process(COMMAND git clone git@github.com:Marinoland/marinoland_depend.git depend)
-	execute_process(COMMAND cmake . WORKING_DIRECTORY depend)
-endif()
-
-
 if(WIN32)
     set(CMAKE_WIN32_EXECUTABLE ON)
     set(UI_FRAMEWORK_DIR ui_framework/win)
