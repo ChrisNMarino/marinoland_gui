@@ -2,6 +2,6 @@
 
 MButtonBox::MButtonBox(MWidget & parent)
 {
-    gtkwidget = gtk_button_box_new(GTK_ORIENTATION_HORIZONTAL);
+    SetGtkWidget(gtk_button_box_new(GTK_ORIENTATION_HORIZONTAL));
     parent.AddChild(*this);
 }

@@ -10,6 +10,7 @@ public:
     void SetTitle(const char *title);
     void SetDimensions(const int w, const int h);
     virtual void AddChild(MWidget & child);
+    virtual void GetClientRect(int & w, int & h);
 private:
     GtkWidget *gtkcontainer;
 };
