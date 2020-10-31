@@ -9,11 +9,15 @@ public:
 		//buttonBox = gui->buttonBox(*mainWindow);
 		exitButton = gui->button(*mainWindow, "Clicky");
 		exitButton->SetDimensions(100, 40);
-		exitButton->SetPosition(295, 155);
 
 		mainWindow->SetTitle("Super Window");
 		mainWindow->SetDimensions(400, 200);
 		mainWindow->Show();
+
+		int w, h;
+		mainWindow->GetClientRect(w, h);
+		exitButton->SetPosition(w-105, h-45);
+
 		exitButton->OnClick([&] () { mainWindow->Close(); });
 		mainWindow->OnResize([&] (int w, int h) {
 			int width = 100, height = 100;
