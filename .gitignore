@@ -51,5 +51,8 @@ Debug
 Release
 out
 testui.exe.dir
-
+depend.defs
+depend.includedirs
+depend.libs
+depend.linkdirs
 

@@ -47,6 +47,7 @@ add_library(gui STATIC
     ${UI_FRAMEWORK_DIR}/ui_framework/MWidget.cpp
     ${UI_FRAMEWORK_DIR}/ui_framework/MButton.cpp
     ${UI_FRAMEWORK_DIR}/ui_framework/MButtonBox.cpp
+    ${UI_FRAMEWORK_DIR}/ui_framework/MTextBox.cpp
     ${UI_FRAMEWORK_DIR}/ui_framework/MWindow.cpp
     ${UI_FRAMEWORK_DIR}/ui_framework/MApplication.cpp
 )

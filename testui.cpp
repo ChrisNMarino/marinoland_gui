@@ -6,29 +6,43 @@ public:
 	void Ready(MGuiFactory *gui) {
 
 		mainWindow = gui->window();
-		//buttonBox = gui->buttonBox(*mainWindow);
-		exitButton = gui->button(*mainWindow, "Clicky");
+		setTitleButton = gui->button(*mainWindow, "Set Title");
+		setTitleButton->SetDimensions(100, 40);
+		exitButton = gui->button(*mainWindow, "Exit");
 		exitButton->SetDimensions(100, 40);
 
+		textBox = gui->textBox(*mainWindow);
+		textBox->SetDimensions(300, 40);
+		textBox->SetText("Hello World");
+
 		mainWindow->SetTitle("Super Window");
-		mainWindow->SetDimensions(400, 200);
+		mainWindow->SetDimensions(600, 400);
 		mainWindow->Show();
 
 		int w, h;
 		mainWindow->GetClientRect(w, h);
-		exitButton->SetPosition(w-105, h-45);
+		setTitleButton->SetPosition(w-105, h-45);
+		exitButton->SetPosition(5, 5);
+		textBox->SetPosition(w-410, h-45);
 
-		exitButton->OnClick([&] () { mainWindow->Close(); });
+		setTitleButton->OnClick([&] () {
+			mainWindow->SetTitle(textBox->GetText().c_str());
+		});
+		exitButton->OnClick([&] () {
+			mainWindow->Close();
+		});
 		mainWindow->OnResize([&] (int w, int h) {
 			int width = 100, height = 100;
 			mainWindow->GetClientRect(width, height);
-			exitButton->SetPosition(width-105, height-45);
+			setTitleButton->SetPosition(width-105, height-45);
+			textBox->SetPosition(width-410, height-45);
 		 });
 	}
 private:
 	MWindowRef mainWindow;
-	//MButtonBoxRef buttonBox;
+	MButtonRef setTitleButton;
 	MButtonRef exitButton;
+	MTextBoxRef textBox;
 };
 
 RUN(MainApp)
