@@ -36,6 +36,7 @@ testui
 Makefile
 CMakeFiles
 CMakeCache.txt
+CMakeSettings.json
 cmake_install.cmake
 
 # visual studio stuff
