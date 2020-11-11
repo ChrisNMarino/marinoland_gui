@@ -20,9 +20,10 @@ public:
     MButtonRef button(MWidget & parent, const char *label) { return std::make_shared<MButton>(parent, label); }
     MButtonBoxRef buttonBox(MWidget & parent) { return std::make_shared<MButtonBox>(parent); }
     MTextBoxRef textBox(MWidget & parent) { return std::make_shared<MTextBox>(parent); }
-    MWindowRef window() { return std::make_shared<MWindow>(/*gtkapp*/); }
+    MWindowRef window() { return std::make_shared<MWindow>(); }
+    void messageBox(const char *title, const char *msg);
+    void messageBox(MWindow &parent, const char *title, const char *msg);
 private:
-    //GtkApplication *gtkapp;
 };
 
 #endif
