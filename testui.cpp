@@ -5,6 +5,8 @@ public:
 	MainApp() : MApplication ("com.marinoland.testgui") {}
 	void Ready(MGuiFactory *gui) {
 
+		gui->messageBox("Starting...", "Hello World");
+
 		mainWindow = gui->window();
 		setTitleButton = gui->button(*mainWindow, "Set Title");
 		setTitleButton->SetDimensions(100, 40);
@@ -29,6 +31,7 @@ public:
 			mainWindow->SetTitle(textBox->GetText().c_str());
 		});
 		exitButton->OnClick([&] () {
+			gui->messageBox(*mainWindow, "Exit Clicked", "Goodbye!");
 			mainWindow->Close();
 		});
 		mainWindow->OnResize([&] (int w, int h) {
@@ -36,7 +39,7 @@ public:
 			mainWindow->GetClientRect(width, height);
 			setTitleButton->SetPosition(width-105, height-45);
 			textBox->SetPosition(width-410, height-45);
-		 });
+		});
 	}
 private:
 	MWindowRef mainWindow;

@@ -21,6 +21,8 @@ public:
     MButtonRef button(MWidget & parent, const char *label) { return std::make_shared<MButton>(parent, label); }
     MButtonBoxRef buttonBox(MWidget &parent) { return std::make_shared<MButtonBox>(parent); }
     MWindowRef window() { return std::make_shared<MWindow>(gtkapp); }
+    void messageBox(const char *title, const char *msg);
+    void messageBox(MWindow &parent, const char *title, const char *msg);
 private:
     GtkApplication *gtkapp;
 };

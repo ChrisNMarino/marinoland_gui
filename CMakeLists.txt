@@ -4,7 +4,7 @@ project (ui)
 if(WIN32)
     set(CMAKE_WIN32_EXECUTABLE ON)
     set(UI_FRAMEWORK_DIR ${CMAKE_CURRENT_SOURCE_DIR}/ui_framework/win)
-    set(UI_INCLUDE ${UI_FRAMEWORK_DIR})
+    set(UI_INCLUDE ${CMAKE_CURRENT_SOURCE_DIR} ${UI_FRAMEWORK_DIR})
     set(UI_LINK )
     set(UI_DEFS )
     set(UI_LIBS )
@@ -14,6 +14,7 @@ ELSE()
     find_package(PkgConfig REQUIRED)
     PKG_CHECK_MODULES(GTK3 REQUIRED gtk+-3.0)
     set(UI_INCLUDE
+        ${CMAKE_CURRENT_SOURCE_DIR}
         ${GTK3_INCLUDE_DIRS}
         ${UI_FRAMEWORK_DIR}
     )
@@ -50,6 +51,7 @@ add_library(gui STATIC
     ${UI_FRAMEWORK_DIR}/ui_framework/MTextBox.cpp
     ${UI_FRAMEWORK_DIR}/ui_framework/MWindow.cpp
     ${UI_FRAMEWORK_DIR}/ui_framework/MApplication.cpp
+    ${UI_FRAMEWORK_DIR}/ui_framework/MGuiFactory.cpp
 )
 
 add_executable(testui testui.cpp)
