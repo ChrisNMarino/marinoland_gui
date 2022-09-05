@@ -38,6 +38,7 @@ CMakeFiles
 CMakeCache.txt
 CMakeSettings.json
 cmake_install.cmake
+build
 
 # visual studio stuff
 .vs
